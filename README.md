@@ -1,14 +1,20 @@
 # Web-Programming
 Pages for fitness tracker app:
 
--Home Screen
+-Home Screen:
+  Default page that displays what the app is and points to where to sign up.
+  
+-Sign Up/Login:
+  Page for users to sign up for an account or log in to one they have already created.
 
--Sign Up/Login
+-Food Tracker:
+  Users input food intake and track calories/nutrition.
 
--Food Tracker
+-Meal Planner:
+  Page for putting together meals and saving recipes for use.
 
--Meal Planner
+-Exercise Tracker:
+  Tracks users exercise habbits and displays health statistics.
 
--Exercise Tracker
-
--Profile
+-Profile:
+  Settings for user profile. Can update weight/height.
