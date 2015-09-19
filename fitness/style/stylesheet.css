@@ -1,0 +1,27 @@
+* {
+    color:grey;
+}
+
+.toptext {
+    background:url(../images/fitness_background.jpg);
+    background-size: 100% auto;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    height: 700px;
+    font-weight: bold;
+}
+
+
+.toptext p {
+    padding: 100px 250px 50px 250px;
+}
+
+body {
+    background: #efefef;;
+}
+
+.jumbotron {
+    border: solid 5px grey;
+    color: grey;
+}
