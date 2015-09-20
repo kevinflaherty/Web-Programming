@@ -13,38 +13,20 @@
   </head>
   <body>
     <div class="container">
-      <ul class="nav nav-tabs">
-          <li role="presentation" class="active"><a href="index.php">Home</a></li>
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="index.php">Home</a></li>
           <li role="presentation"><a href="account.php">Account</a></li>
           <li role="presentation"><a href="exercise.php">Exercise</a></li>
-          <li role="presentation"><a href="diet.php">Diet</a></li>
+          <li role="presentation" class="active"><a href="diet.php">Diet</a></li>
           <li role="presentation"><a href="stats.php">Stats</a></li>
           <li role="presentation"><a href="login.php">Login</a></li>
-      </ul>
-        <div class="jumbotron" id="head">
-             <h1>Fitness Tracker Extreme</h1>
-        </div>
-        <div class="toptext">
-          
-          <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <p>
-                        Welcome to Fitness Tracker Extreme, your one stop shop for counting calories, tracking exercise, and losing weight.
-                    </p>
-                </div>
-           </div>
-           <br>
-           <br>
-           
-           <div class="col-md-12 col-xs-12">
-              <p id="signup">Sign up for free today!
-              <br>
-                <a class="btn btn-success" href="login.php" role="button">Sign Up</a>
-              </p>
-              <br>
-              <br>
-          </div>
-          
+        </ul>
+        <h1>What have you been eating?</h1>
+        <form accept-charset="UTF-8" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden"</div>
+            Food Search: <input autocomplete="off" class="text long" id="search" name="search" type="text" value="">
+            &nbsp;&nbsp;
+            <input class="button" name="commit" type="submit" value="Search">
+        </form>
         </div>
        <br>
     </div>

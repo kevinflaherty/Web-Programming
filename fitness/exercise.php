@@ -18,6 +18,7 @@
             <li role="presentation"><a href="account.php">Account</a></li>
             <li role="presentation" class="active"><a href="exercise.php">Exercise</a></li>
             <li role="presentation"><a href="diet.php">Diet</a></li>
+            <li role="presentation"><a href="stats.php">Stats</a></li>
             <li role="presentation"><a href="login.php">Login</a></li>
         </ul>
         
