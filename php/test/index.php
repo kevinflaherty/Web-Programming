@@ -1,23 +1,23 @@
 <?php
 session_start();
-    $name = 'Kevin Flaherty';
+    $name = 'Moshe Plotkin';
     $message = "Welcome $name";
     
-    $person = array( 'Name' => $name, 'Age' => 21, CalorieGoal => 2000 );
+    $person = array( 'Name' => $name, 'Age' => 38, CallorieGoal => 2000 );
     
     $food = $_SESSION['food'];
     if(!$food){
       $_SESSION['food'] = $food = array(
-          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Calories => 400 ),
-          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Calories => 800 ),
-          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
-          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Calories => 400 ),
+          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Callories => 400 ),
+          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Callories => 800 ),
+          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Callories => 400 ),
+          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Callories => 400 ),
           );
     }
         
     $total = 0;
     foreach ($food as $meal) {
-        $total += $meal['Calories'];
+        $total += $meal['Callories'];
     }
     
     
@@ -47,7 +47,7 @@ session_start();
                         <dt>Age</dt>
                         <dd><?=$person['Age']?></dd>
                         <dt>Goal</dt>
-                        <dd><?=$person['CalorieGoal']?></dd>
+                        <dd><?=$person['CallorieGoal']?></dd>
                         <dt>Today's Intake</dt>
                         <dd><?=$total?></dd>
                     </dl>
@@ -71,7 +71,7 @@ session_start();
                   <th>#</th>
                   <th>Name</th>
                   <th>Time</th>
-                  <th>Calories</th>
+                  <th>Callories</th>
                 </tr>
               </thead>
               <tbody>
@@ -86,7 +86,7 @@ session_start();
                   </th>
                   <td><?=$meal['Name']?></td>
                   <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
-                  <td><?=$meal['Calories']?></td>
+                  <td><?=$meal['Callories']?></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>

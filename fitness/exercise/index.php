@@ -1,23 +1,22 @@
 <?php
 session_start();
-    $name = 'Kevin Flaherty';
+    $name = 'John Doe';
     $message = "Welcome $name";
     
-    $person = array( 'Name' => $name, 'Age' => 21, CalorieGoal => 2000 );
+    $person = array( 'Name' => $name, 'Age' => 21, BurnedGoal => 2000 );
     
-    $food = $_SESSION['food'];
-    if(!$food){
-      $_SESSION['food'] = $food = array(
-          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Calories => 400 ),
-          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Calories => 800 ),
-          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
-          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Calories => 400 ),
+    $exercise = $_SESSION['exercise'];
+    if(!$exercise){
+      $_SESSION['exercise'] = $exercise = array(
+          array( 'Name' => 'Run', 'Amount' => '5 miles', 'Time' => strtotime("-1 hour"), Calories => 600 ),
+          array( 'Name' => 'Free Weights', 'Amount' => ' 1 hour', 'Time' => strtotime("now"), Calories => 200 ),
+          array( 'Name' => 'Kyaking', 'Amount' => ' 30 minutes', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
           );
     }
         
     $total = 0;
-    foreach ($food as $meal) {
-        $total += $meal['Calories'];
+    foreach ($exercise as $workout) {
+        $total += $workout['Calories'];
     }
     
     
@@ -29,14 +28,24 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Intake</title>
+    <title>Exercise Tracking</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../style/stylesheet.css" />  
   </head>
   <body>
     <div class="container">
-            <h1>Food Intake</h1>
+      <ul class="nav nav-tabs">
+          <li role="presentation"><a href="../index.php">Home</a></li>
+          <li role="presentation"><a href="../account.php">Account</a></li>
+          <li role="presentation"><a href="../weight">Weight</a></li>
+          <li role="presentation" class="active"><a href="#">Exercise</a></li>
+          <li role="presentation"><a href="../diet.php">Diet</a></li>
+          <li role="presentation"><a href="../stats.php">Stats</a></li>
+          <li role="presentation"><a href="../login.php">Login</a></li>
+      </ul>
+            <h1>Exercise</h1>
             <h2><?=$message?></h2>
             <div class="panel panel-success">
                 <div class="panel-heading">Your Data</div>
@@ -46,23 +55,18 @@ session_start();
                         <dd><?=$person['Name']?></dd>
                         <dt>Age</dt>
                         <dd><?=$person['Age']?></dd>
-                        <dt>Goal</dt>
-                        <dd><?=$person['CalorieGoal']?></dd>
-                        <dt>Today's Intake</dt>
+                        <dt>Calories Burned Goal</dt>
+                        <dd><?=$person['BurnedGoal']?></dd>
+                        <dt>Total Burned Today</dt>
                         <dd><?=$total?></dd>
                     </dl>
                 </div>
             </div>
       <div class="row">
-        <div class="col-md-8 col-xs-10">
+        <div class="col-md-12 col-xs-12">
             <a href="edit.php" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i>
                 New Record
-            </a>
-            <a href="#" class="btn btn-danger">
-                <i class="glyphicon glyphicon-trash"></i>
-                Delete All
-                <span class="badge"><?=count($food)?></span>
             </a>
             <br />
             <table class="table table-condensed table-striped table-bordered table-hover">
@@ -70,37 +74,30 @@ session_start();
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <th>Amount</th>
                   <th>Time</th>
                   <th>Calories</th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach($food as $i => $meal): ?>
+                <?php foreach($exercise as $i => $workout): ?>
                 <tr>
                   <th scope="row">
                     <div class="btn-group" role="group" aria-label="...">
-                      <a href="" title="View" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a>
+                      <a href="view.php?id=<?=$i?>" title="View" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a>
                       <a href="edit.php?id=<?=$i?>" title="Edit" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
                       <a href="delete.php?id=<?=$i?>" title="Delete" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                   </th>
-                  <td><?=$meal['Name']?></td>
-                  <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
-                  <td><?=$meal['Calories']?></td>
+                  <td><?=$workout['Name']?></td>
+                  <td><?=$workout['Amount']?></td>
+                  <td><?=date("M d Y  h:i:sa", $workout['Time'])?></td>
+                  <td><?=$workout['Calories']?></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>  
           
-        </div>
-        <div class="col-md-4 col-xs-10">
-            <div class="alert alert-success" role="alert">
-                You did well
-            </div>
-            <div class="alert alert-danger" role="alert">
-                Oh no! You messed up.
-            </div>
-
         </div>
       </div>
       

@@ -1,21 +1,21 @@
 <?php
 session_start();
-  $food = $_SESSION['food'];
+  $exercise = $_SESSION['exercise'];
   if($_POST){
     if(isset($_GET['id'])){
-      $food[$_GET['id']] = $_POST;
+      $exercise[$_GET['id']] = $_POST;
     }else{
-      $food[] = $_POST;
+      $exercise[] = $_POST;
     }
     
-    $_SESSION['food'] = $food;
+    $_SESSION['exercise'] = $exercise;
     header('Location: ./');
   }
     
   if(isset($_GET['id'])){
-    $meal = $food[$_GET['id']];
+    $workout = $exercise[$_GET['id']];
   }else{
-    $meal = array();
+    $workout = array();
   }
 ?>
 <!DOCTYPE html>
@@ -25,25 +25,20 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Log: Edit</title>
+    <title>Exercise Log: Edit</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../style/stylesheet.css" />
   </head>
   <body>
     <div class="container">
 
         <div class="page-header">
-          <h1>Food Intake <small>Record your daily meals</small></h1>
+          <h1>Exercise <small>Record your daily workouts</small></h1>
         </div>
-          <div class='alert alert-warning'>
-            <button type="button" class="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <b>Special Offer</b> Free ice cream today!
-          </div> 
         <form class="form-horizontal" action="" method="post" >
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
@@ -54,28 +49,25 @@ session_start();
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name" value="<?=$meal['Name']?>">
+              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Ex. Run, Bike, Weights...etc" value="<?=$workout['Name']?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtAmount" class="col-sm-2 control-label">Amount</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="txtName" name="Amount" placeholder="Ex. 5 miles, 2 hours...etc" value="<?=$workout['Name']?>">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal"  value="<?=$meal['Calories']?>">
+                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories burned"  value="<?=$workout['Calories']?>">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
+            <label class="col-sm-2 control-label" for="txtDate">Date of workout</label>
             <div class="col-sm-10">
-                  <input type="text" class="form-control date" id="txtDate" name="Time" placeholder="Date"  value="<?=$meal['Time']?>">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me
-                </label>
-              </div>
+                  <input type="text" class="form-control date" id="txtDate" name="Time" placeholder="Date"  value="<?=$workout['Time']?>">
             </div>
           </div>
           <div class="form-group">
@@ -84,11 +76,6 @@ session_start();
             </div>
           </div>
         </form>
-        <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar"  style="width: 0%">
-                <span >0</span>% Complete
-              </div>
-        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
