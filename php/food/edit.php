@@ -58,9 +58,9 @@ session_start();
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
+            <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal"  value="<?=$meal['Calories']?>">
+                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal"  value="<?=$meal['Callories']?>">
             </div>
           </div>
           <div class="form-group">

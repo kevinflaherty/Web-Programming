@@ -8,8 +8,8 @@ session_start();
     $weight = $_SESSION['weight'];
     if(!$weight){
       $_SESSION['weight'] = $weight = array(
-          array( Weight => 190, BMI => '25.1', 'Time' => strtotime("-1 hour"),  Change => 0 ),
-          array( Weight => 187, BMI => '24.9', 'Time' => strtotime("1 hour"),  Change => -3 ),
+          array( Weight => 190, BMI => '25.1', 'Time' => '10/10/2015',  Change => 0 ),
+          array( Weight => 187, BMI => '24.9', 'Time' => '10/12/2015',  Change => -3 ),
           );
     }
     
@@ -83,7 +83,7 @@ session_start();
                   </th>
                   <td><?=$log['Weight']?></td>
                   <td><?=$log['BMI']?></td>
-                  <td><?=date("M d Y  h:i:sa", $log['Time'])?></td>
+                  <td><?=$log['Time']?></td>
                   <td><?=$log['Change']?></td>
                 </tr>
                 <?php endforeach; ?>

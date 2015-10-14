@@ -34,7 +34,7 @@ session_start();
         <ul>
             <li>Workout Name: <?=$workout['Name']?></li>
             <li>Workout Amount: <?=$workout['Amount']?></li>
-            <li>Workout Time: <?=date("M d Y  h:i:sa", $workout['Time'])?></li>
+            <li>Workout Time: <?=$workout['Time']?></li>
             <li>Workout Calories Burned: <?=$workout['Calories']?></li>
         </ul>
     </div>

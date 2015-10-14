@@ -34,7 +34,7 @@ session_start();
         <ul>
             <li>Weight: <?=$log['Weight']?></li>
             <li>BMI: <?=$log['BMI']?></li>
-            <li>Time: <?=date("M d Y  h:i:sa", $log['Time'])?></li>
+            <li>Time: <?=$log['Time']?></li>
             <li>Weight Change: <?=$log['Change']?></li>
         </ul>
     </div>

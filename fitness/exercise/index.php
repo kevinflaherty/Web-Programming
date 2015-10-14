@@ -8,9 +8,9 @@ session_start();
     $exercise = $_SESSION['exercise'];
     if(!$exercise){
       $_SESSION['exercise'] = $exercise = array(
-          array( 'Name' => 'Run', 'Amount' => '5 miles', 'Time' => strtotime("-1 hour"), Calories => 600 ),
-          array( 'Name' => 'Free Weights', 'Amount' => ' 1 hour', 'Time' => strtotime("now"), Calories => 200 ),
-          array( 'Name' => 'Kyaking', 'Amount' => ' 30 minutes', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
+          array( 'Name' => 'Run', 'Amount' => '5 miles', 'Time' => "10/10/2015", Calories => 600 ),
+          array( 'Name' => 'Free Weights', 'Amount' => ' 1 hour', 'Time' => "10/11/2015", Calories => 200 ),
+          array( 'Name' => 'Kyaking', 'Amount' => ' 30 minutes', 'Time' => "10/11/2015", Calories => 400 ),
           );
     }
         
@@ -91,7 +91,7 @@ session_start();
                   </th>
                   <td><?=$workout['Name']?></td>
                   <td><?=$workout['Amount']?></td>
-                  <td><?=date("M d Y  h:i:sa", $workout['Time'])?></td>
+                  <td><?=$workout['Time']?></td>
                   <td><?=$workout['Calories']?></td>
                 </tr>
                 <?php endforeach; ?>

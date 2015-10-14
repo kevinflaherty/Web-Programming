@@ -1,4 +1,5 @@
 <?php
+  var_dump($_POST);
 session_start();
     $name = 'Kevin Flaherty';
     $message = "Welcome $name";
@@ -86,6 +87,7 @@ session_start();
                   </th>
                   <td><?=$meal['Name']?></td>
                   <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
+                  <td><?=$meal['Time']?></td>
                   <td><?=$meal['Calories']?></td>
                 </tr>
                 <?php endforeach; ?>
