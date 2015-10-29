@@ -1,42 +1,4 @@
-<?php
-session_start();
-    $name = 'Moshe Plotkin';
-    $message = "Welcome $name";
-    
-    $person = array( 'Name' => $name, 'Age' => 38, CallorieGoal => 2000 );
-    
-    $food = $_SESSION['food'];
-    if(!$food){
-      $_SESSION['food'] = $food = array(
-          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Callories => 400 ),
-          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Callories => 800 ),
-          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Callories => 400 ),
-          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Callories => 400 ),
-          );
-    }
-        
-    $total = 0;
-    foreach ($food as $meal) {
-        $total += $meal['Callories'];
-    }
-    
-    
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Intake</title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  </head>
-  <body>
-    <div class="container">
-            <h1>Food Intake</h1>
+<h1>Food Intake</h1>
             <h2><?=$message?></h2>
             <div class="panel panel-success">
                 <div class="panel-heading">Your Data</div>
@@ -105,9 +67,3 @@ session_start();
       </div>
       
             
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
-</html>
