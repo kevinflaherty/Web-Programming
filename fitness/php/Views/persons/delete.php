@@ -6,7 +6,9 @@
     <h4 class="modal-title" id="myModalLabel">Delete a person</h4>
   </div>
   	<div class="modal-body">
-
+        
+        <?php include __DIR__ . '/../shared/_Errors.php'; ?>
+        
   		<h5>Are you sure you want to delete <?=$model['name']?>?</h5>
   		
   	</div>
