@@ -5,10 +5,9 @@ module.exports =  {
     blank: function(){ return {} },
     get: function(id, userId, ret){
         var conn = g.GetConnection();
-        var sql = 'SELECT E.*, K.Name as TypeName, P.Name as PersonName FROM 2015Fall_Exercise_Done E '
-                + '   Join 2015Fall_Persons P ON E.UserId = P.id '
-                + '   Join 2015Fall_Keywords K ON E.TypeId = K.id '
-                + ' WHERE E.UserId = ' + userId;
+        var sql = 'SELECT E.* P.name as PersonName FROM 2015Fall_Exercise_Done E '
+                + '   Join FitnessTracker_User P ON E.User_id = P.id '
+                + ' WHERE E.User_id = ' + userId;
         if(id){
           sql += " AND E.id = " + id;
         }
@@ -19,7 +18,7 @@ module.exports =  {
     },
     delete: function(id, ret){
         var conn = g.GetConnection();
-        conn.query("DELETE FROM 2015Fall_Exercise_Done WHERE id = " + id, function(err,rows){
+        conn.query("DELETE FROM FitnessTracker_Exercise WHERE id = " + id, function(err,rows){
           ret(err);
           conn.end();
         });        
@@ -29,15 +28,15 @@ module.exports =  {
         var conn = g.GetConnection();
         //  TODO Sanitize
         if (row.id) {
-				  sql = " Update 2015Fall_Exercise_Done "
-							+ " Set `TypeId`=?, `UserId`=?, `Name`=?, `Time`=?, `Duration`=?, `Intensity`=? "
+				  sql = " Update FitnessTracker_Exercise "
+							+ " Set `User_id`=?, `name`=?, `when`=?, `duration`=?, `intensity`=? "
 						  + " WHERE id = ? ";
 			  }else{
-				  sql = "INSERT INTO `2015Fall_Exercise_Done` (`created_at`, `TypeId`, `UserId`, `Name`, `Time`, `Duration`, `Intensity`) "
+				  sql = "INSERT INTO `FitnessTracker_Exercise` (`created_at`, `User_id`, `name`, `when`, `duration`, `intensity`) "
 						  + "VALUES (Now(), ?, ?, ?, ?, ?, ? ) ";				
 			  }
 
-        conn.query(sql, [row.TypeId, row.UserId, row.Name, row.Time, row.Duration, row.Intensity, row.id],function(err,data){
+        conn.query(sql, [ row.User_id, row.name, row.when, row.duration, row.intensity, row.id],function(err,data){
           if(!err && !row.id){
             row.id = data.insertId;
           }

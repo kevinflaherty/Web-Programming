@@ -40,7 +40,7 @@ module.exports =  {
 			  }else{
 				  sql = "INSERT INTO FitnessTracker_User "
 						  + " (name, dob, created_at, fbid) "
-						  + "VALUES (?, ?, Now(), ?, ? ) ";				
+						  + "VALUES (?, ?, Now(), ?, ?) ";				
 			  }
 
         conn.query(sql, [row.name, row.dob, row.fbid, row.id],function(err,data){

@@ -30,7 +30,7 @@ module.exports =  {
 							+ " Set `name`=?, `calories`=?, `fat`=?, `carbs`=?, `fiber`=?, `when`=?, `User_id`=? "
 						  + " WHERE id = ? ";
 			  }else{
-				  sql = "INSERT INTO `FitnessTracker_Meal` (`created_at`, `name`, `calories`, `fat`, `carbs`, `fiber`, `time`, `User_id`)"
+				  sql = "INSERT INTO `FitnessTracker_Meal` (`created_at`, `name`, `calories`, `fat`, `carbs`, `fiber`, `when`, `User_id`)"
 						  + "VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?) ";				
 			  }
 
